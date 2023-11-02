@@ -25,22 +25,3 @@ def is_arr_monotonous(array, i=0):
 
     else:
         return False
-
-
-# def is_monotonous(arr):
-#     increase = decrease = True
-#     for i in range(1, len(arr)):
-#         if arr[i - 1] > arr[i]:
-#             increase = False
-#         elif arr[i - 1] < arr[i]:
-#             decrease = False
-#
-#     print()
-#     print(increase)
-#     print(decrease)
-#
-#
-# is_monotonous([1, 2, 3, 4, 5])
-# is_monotonous([5, 4, 3, 2, 1])
-# is_monotonous([1, 4, 2, 5, 6, 7])
-# is_monotonous([1, 2, 3, 3, 4, 5])
