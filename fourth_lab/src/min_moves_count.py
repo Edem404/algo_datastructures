@@ -20,6 +20,11 @@ def read_file(param_file):
     return board_size, start_position, end_position
 
 
+def write_file(path_to_result, moves):
+    with open(path_to_result, "w", encoding="utf-8") as result_file:
+        result_file.write(f"{moves}")
+
+
 def min_moves_count(param_file, path_to_result):
     """
         function what solve problem about chess knight minimum moves using bfs
@@ -46,8 +51,7 @@ def min_moves_count(param_file, path_to_result):
         current_position, moves = queue.popleft()
 
         if current_position == target_position:
-            with open(path_to_result, "w", encoding="utf-8") as result_file:
-                result_file.write(f"{moves}")
+            write_file(path_to_result, moves)
             return moves
 
         for move in range(COUNT_OF_POSSIBLE_MOVES):
