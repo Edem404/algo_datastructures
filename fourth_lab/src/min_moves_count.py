@@ -2,6 +2,7 @@
     solution of chess knight minimum moves problem
 """
 import collections
+COUNT_OF_POSSIBLE_MOVES = 8
 
 
 def min_moves_count(param_file, path_to_result):
@@ -23,8 +24,8 @@ def min_moves_count(param_file, path_to_result):
         start_position = tuple(map(int, lines[1].strip().split(",")))
         target_position = tuple(map(int, lines[2].strip().split(",")))
 
-        row = [2, 2, -2, -2, 1, 1, -1, -1]
-        col = [-1, 1, 1, -1, 2, -2, 2, -2]
+        possible_moves_x = [2, 2, -2, -2, 1, 1, -1, -1]
+        possible_moves_y = [-1, 1, 1, -1, 2, -2, 2, -2]
 
         visited = set()
         queue = collections.deque()
@@ -39,9 +40,9 @@ def min_moves_count(param_file, path_to_result):
                 result_file.write(f"{moves}")
             return moves
 
-        for move in range(8):
-            current_x = current_position[0] + row[move]
-            current_y = current_position[1] + col[move]
+        for move in range(COUNT_OF_POSSIBLE_MOVES):
+            current_x = current_position[0] + possible_moves_x[move]
+            current_y = current_position[1] + possible_moves_y[move]
 
             if (
                 0 <= current_x < board_size
