@@ -37,12 +37,8 @@ def minimal_beer_sort_count(param_file):
     for key, value in sorted_dict.items():
         if key not in processed_workers and value.index("Y") + 1 not in types_of_beer:
             sort_liked_by_worker = [i + 1 for i, x in enumerate(value) if x == "Y"]
-            print(f"Worker {key} likes sorts {sort_liked_by_worker}")
 
             chosen_sort = sort_liked_by_worker[len(sort_liked_by_worker) - 1]
             types_of_beer.add(chosen_sort)
 
-    print(f"types of beer {types_of_beer}")
-    print(f" {processed_workers}")
-    print(sorted_dict)
     return len(types_of_beer)
