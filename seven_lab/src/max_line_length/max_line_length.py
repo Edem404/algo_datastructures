@@ -33,7 +33,11 @@ def max_wire_length(args_path):
         current_combination_length = 0
         for i in range(first_in_pair + 1, len(heights)):
             for j in range(heights[i], 0, -1):
-                wire_len = math.sqrt(w ** 2 + (second_in_pair - j) ** 2) + max_wire_length_calculate(i, j)
+                if (i, j) in memoization:
+                    wire_len = math.sqrt(w ** 2 + (second_in_pair - j) ** 2) + memoization[(i, j)]
+                else:
+                    wire_len = math.sqrt(w ** 2 + (second_in_pair - j) ** 2) + max_wire_length_calculate(i, j)
+
                 current_combination_length = max(current_combination_length, wire_len)
 
         memoization[current_combination] = current_combination_length

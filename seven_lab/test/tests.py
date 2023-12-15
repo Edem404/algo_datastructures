@@ -15,5 +15,6 @@ class MyTestCase(unittest.TestCase):
     def test_fourth(self):
         self.assertEqual(2738.17, max_wire_length('fourth_test.txt'))
 
+
 if __name__ == '__main__':
     unittest.main()
